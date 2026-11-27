@@ -79,17 +79,51 @@ body.locked{overflow:hidden}
 .lbtn.load::after{content:"";position:absolute;right:16px;top:50%;width:18px;height:18px;margin-top:-9px;border:3px solid #0a7a3e55;border-top-color:#0a7a3e;border-radius:50%;animation:spin .7s linear infinite}
 .lerr{min-height:20px;margin-top:12px;font-size:13px;color:#ffb3ad;font-weight:600}
 .lft{margin-top:14px;font-size:11.5px;opacity:.6}
+
+.ltabs{display:flex;background:#00000033;border-radius:14px;padding:4px;margin:14px 0 18px}
+.ltabs button{flex:1;border:0;background:none;color:#fff;padding:10px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer;opacity:.75;transition:.25s}
+.ltabs button.on{background:#fff;color:#05381d;opacity:1}
+.pane{display:none}.pane.on{display:block;animation:pop .5s both}
+.rcode{margin-top:12px;font-size:11.5px;text-align:left;background:#00000033;border-radius:12px;padding:10px;word-break:break-all;max-height:64px;overflow:auto}
+.lmini{display:inline-block;margin:8px 4px 0;padding:8px 12px;border-radius:10px;border:1px solid #ffffff55;background:#ffffff22;color:#fff;font:inherit;font-size:12.5px;cursor:pointer;text-decoration:none}
+.adm{position:fixed;inset:0;z-index:90;background:var(--bg);color:var(--tx);overflow:auto;display:none}.adm.on{display:block}
+.admh{background:linear-gradient(135deg,#06502a,#0b7a3e);color:#fff;padding:18px 20px}
+.admh .w{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.admh h2{margin:0;font-size:20px}
+.adm .w{max-width:1000px;margin:auto}.admc{padding:18px 16px 40px}
+.atabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:14px;margin-bottom:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th,.tbl td{padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}
+.tbl th{color:var(--mut);font-size:12px;text-transform:uppercase}.tbl tr:last-child td{border:0}
+.bd{display:inline-block;padding:2px 10px;border-radius:999px;font-size:11.5px;background:var(--chip);color:var(--g);font-weight:600}.bd.r{background:#ffdcd9;color:#a5160f}.bd.a{background:#fff0c9;color:#8a6200}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.fgrid input,.fgrid select,.mbox input{padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit;width:100%}
+.mod{position:fixed;inset:0;z-index:120;background:#000a;display:none;align-items:center;justify-content:center;padding:16px}.mod.on{display:flex}
+.mbox{background:var(--card);color:var(--tx);border-radius:18px;padding:22px;max-width:460px;width:100%;border:1px solid var(--bd);animation:pop .35s both}
+.mbox h3{margin:0 0 6px}.mbox p{margin:0 0 12px;color:var(--mut);font-size:14px}
+.cred{background:var(--bg);border:1px dashed var(--g2);border-radius:12px;padding:12px;font-size:14px;line-height:1.9;word-break:break-all}
+.mact{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+a.btn{text-decoration:none;display:inline-block}
+.amsg{min-height:20px;font-size:13px;margin:8px 0;color:var(--r);font-weight:600}.amsg.ok{color:var(--g)}
 </style></head><body class="locked">
 <div id="login"><svg class="bigstar" viewBox="0 0 100 100"><path d="M50 4l13 29 31 4-23 22 6 31-27-15-27 15 6-31L6 37l31-4z" fill="#fff"/></svg>
-<div class="lcard" id="lcard"><svg viewBox="0 0 250 78" aria-label="Heineken"><rect width="250" height="78" rx="14" fill="#0a7d3a"/><rect x="3" y="3" width="244" height="72" rx="11" fill="none" stroke="#ffffff55" stroke-width="1.5"/><path d="M39 13l6.9 14.3 15.6 2.2-11.3 11 2.7 15.6L39 48.7l-13.9 7.4 2.7-15.6-11.3-11 15.6-2.2z" fill="#e2231a" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><text x="72" y="50" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="35" letter-spacing="-.5">Heineken</text><text x="73" y="67" fill="#ffffffcc" font-family="Arial,sans-serif" font-size="9" letter-spacing="3.2">GOOD PRACTICE</text></svg><h2>Đăng nhập hệ thống</h2><p>Tra cứu Good Practice · Heineken Brewery</p>
+<div class="lcard" id="lcard"><svg viewBox="0 0 250 78" aria-label="Heineken"><rect width="250" height="78" rx="14" fill="#0a7d3a"/><rect x="3" y="3" width="244" height="72" rx="11" fill="none" stroke="#ffffff55" stroke-width="1.5"/><path d="M39 13l6.9 14.3 15.6 2.2-11.3 11 2.7 15.6L39 48.7l-13.9 7.4 2.7-15.6-11.3-11 15.6-2.2z" fill="#e2231a" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><text x="72" y="50" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="35" letter-spacing="-.5">Heineken</text><text x="73" y="67" fill="#ffffffcc" font-family="Arial,sans-serif" font-size="9" letter-spacing="3.2">GOOD PRACTICE</text></svg><h2>Heineken Good Practice</h2><p>Hệ thống tra cứu · Nhà máy bia Heineken</p>
+<div class="ltabs"><button class="on" data-lt="pl">Đăng nhập</button><button data-lt="pr">Đăng ký</button></div>
+<div class="pane on" id="pl">
 <div class="fld"><span class="i">👤</span><input id="lu" placeholder="Tên đăng nhập" autocomplete="username"></div>
 <div class="fld"><span class="i">🔒</span><input id="lp" type="password" placeholder="Mật khẩu" autocomplete="current-password"><button class="eye" id="eye" type="button" title="Hiện/ẩn mật khẩu">👁</button></div>
-<button class="lbtn" id="lb">Đăng nhập</button><div class="lerr" id="le"></div><div class="lft">🍺 Heineken Good Practice</div></div></div>
-
+<button class="lbtn" id="lb">Đăng nhập</button><div class="lerr" id="le"></div></div>
+<div class="pane" id="pr">
+<div class="fld"><span class="i">👤</span><input id="ru" placeholder="Tên đăng nhập muốn dùng" autocomplete="off"></div>
+<div class="fld"><span class="i">📱</span><input id="rp" placeholder="Số điện thoại" inputmode="tel" autocomplete="tel"></div>
+<div class="fld"><span class="i">✉️</span><input id="rm" placeholder="Gmail (mật khẩu sẽ gửi về đây)" autocomplete="email"></div>
+<button class="lbtn" id="rb">Gửi đăng ký</button><div class="lerr" id="re"></div><div id="rok" style="display:none"></div></div>
+<div class="lft">🍺 Heineken Good Practice</div></div></div>
+<div class="adm" id="adm"><div class="admh"><div class="w"><h2>⚙ Quản trị tài khoản</h2><span style="flex:1"></span><button class="btn" id="admx">✕ Đóng</button></div></div><div class="w admc"><div class="atabs" id="atabs"></div><div class="amsg" id="amsg"></div><div id="admBody"></div></div></div>
+<div class="mod" id="mod"><div class="mbox" id="mbox"></div></div>
 <div class="hero"><div class="w"><div class="top">
 <svg viewBox="0 0 250 78" aria-label="Heineken"><rect width="250" height="78" rx="14" fill="#0a7d3a"/><rect x="3" y="3" width="244" height="72" rx="11" fill="none" stroke="#ffffff55" stroke-width="1.5"/><path d="M39 13l6.9 14.3 15.6 2.2-11.3 11 2.7 15.6L39 48.7l-13.9 7.4 2.7-15.6-11.3-11 15.6-2.2z" fill="#e2231a" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><text x="72" y="50" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="35" letter-spacing="-.5">Heineken</text><text x="73" y="67" fill="#ffffffcc" font-family="Arial,sans-serif" font-size="9" letter-spacing="3.2">GOOD PRACTICE</text></svg>
 <div><h1>Tra cứu Good Practice nhà máy bia Heineken</h1><p>Biện pháp tiết kiệm điện · nhiệt · nước trong sản xuất bia</p></div>
-<span class="sp"></span><button class="btn" id="theme">🌓 Giao diện</button><button class="btn" id="lo">⎋ Đăng xuất</button></div></div></div>
+<span class="sp"></span><button class="btn" id="theme">🌓 Giao diện</button><button class="btn" id="adminBtn" style="display:none">⚙ Quản trị</button><button class="btn" id="lo">⎋ Đăng xuất</button></div></div></div>
 <div class="w main">
 <div class="stats" id="stats"></div>
 <div class="panel"><input class="srch" id="q" placeholder="🔍 Tìm theo từ khóa (tiếng Anh hoặc tiếng Việt đã dịch): malt mill, steam, nén khí…" autocomplete="off">
@@ -170,17 +204,79 @@ $('theme').onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.
 stats();render();
 </script><script>
 (function(){
-const L=document.getElementById('login'),C=document.getElementById('lcard'),U=document.getElementById('lu'),P=document.getElementById('lp'),B=document.getElementById('lb'),E=document.getElementById('le');
+const $=id=>document.getElementById(id),X=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const KEY='hgp_db';let DB=null,ME=null;
+try{DB=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!DB||!DB.users){const t=Date.now();DB={users:[{u:'admin',p:'Admin@123',role:'admin',phone:'',email:'',t},{u:'baoquoc',p:'abc123',role:'user',phone:'',email:'',t}],reqs:[]}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}};save();
+const find=u=>DB.users.find(a=>a.u.toLowerCase()===String(u).trim().toLowerCase());
+const rand=()=>{const c='abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';const a=new Uint32Array(8);(window.crypto||{}).getRandomValues?crypto.getRandomValues(a):a.forEach((_,i)=>a[i]=Math.random()*1e9);a.forEach(v=>s+=c[v%c.length]);return s};
+const fd=t=>new Date(t).toLocaleString('vi-VN');
+/* ===== login ===== */
+const L=$('login'),C=$('lcard'),U=$('lu'),P=$('lp'),B=$('lb'),E=$('le');
 for(let i=0;i<30;i++){const b=document.createElement('span');b.className='bub';const s=8+Math.random()*46;b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${9+Math.random()*14}s;animation-delay:${-Math.random()*20}s;--dx:${(Math.random()-.5)*160}px`;L.appendChild(b)}
-const ok=()=>{L.classList.add('out');document.body.classList.remove('locked');setTimeout(()=>L.style.display='none',700)};
-let auth=false;try{auth=sessionStorage.getItem('hauth')==='1'}catch(e){}
-if(auth){L.style.display='none';document.body.classList.remove('locked')}else setTimeout(()=>U.focus(),500);
+function enter(x){ME=x;$('adminBtn').style.display=x.role==='admin'?'':'none';L.classList.add('out');document.body.classList.remove('locked');setTimeout(()=>L.style.display='none',700)}
+let au=null;try{au=sessionStorage.getItem('hauth')}catch(e){}
+const ax=au&&find(au);if(ax){L.style.display='none';document.body.classList.remove('locked');ME=ax;$('adminBtn').style.display=ax.role==='admin'?'':'none'}else setTimeout(()=>U.focus(),500);
 function go(){if(B.classList.contains('load'))return;E.textContent='';B.classList.add('load');
-setTimeout(()=>{B.classList.remove('load');
-if(U.value.trim()==='baoquoc'&&P.value==='abc123'){try{sessionStorage.setItem('hauth','1')}catch(e){}C.classList.add('ok');E.style.color='#b6ffd3';E.textContent='✔ Đăng nhập thành công!';setTimeout(ok,450)}
+setTimeout(()=>{B.classList.remove('load');const x=find(U.value);
+if(x&&x.p===P.value){try{sessionStorage.setItem('hauth',x.u)}catch(e){}C.classList.add('ok');E.style.color='#b6ffd3';E.textContent='✔ Đăng nhập thành công!';setTimeout(()=>{enter(x);C.classList.remove('ok')},450)}
 else{E.style.color='';E.textContent='Sai tên đăng nhập hoặc mật khẩu.';C.classList.remove('shake');void C.offsetWidth;C.classList.add('shake');P.value='';P.focus()}},700)}
 B.onclick=go;[U,P].forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')go()}));
-document.getElementById('eye').onclick=()=>{P.type=P.type==='password'?'text':'password'};
-document.getElementById('lo').onclick=()=>{try{sessionStorage.removeItem('hauth')}catch(e){}location.reload()};
+$('eye').onclick=()=>{P.type=P.type==='password'?'text':'password'};
+document.querySelectorAll('[data-lt]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-lt]').forEach(x=>x.classList.toggle('on',x===b));['pl','pr'].forEach(id=>$(id).classList.toggle('on',id===b.dataset.lt))});
+/* ===== đăng ký ===== */
+function rerr(m){const r=$('re');r.style.color='';r.textContent=m;C.classList.remove('shake');void C.offsetWidth;C.classList.add('shake')}
+$('rb').onclick=()=>{const u=$('ru').value.trim(),ph=$('rp').value.replace(/[\s.\-]/g,''),em=$('rm').value.trim();$('re').textContent='';
+if(!/^[A-Za-z0-9_.]{3,20}$/.test(u))return rerr('Tên đăng nhập 3–20 ký tự (chữ, số, _ hoặc .)');
+if(!/^(0|\+84)\d{9,10}$/.test(ph))return rerr('Số điện thoại không hợp lệ.');
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))return rerr('Gmail không hợp lệ.');
+load();
+if(find(u)||DB.reqs.some(r=>r.status==='pending'&&r.u.toLowerCase()===u.toLowerCase()))return rerr('Tên đăng nhập đã tồn tại hoặc đang chờ duyệt.');
+DB.reqs.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),u,phone:ph,email:em,t:Date.now(),status:'pending'});save();
+const code=btoa(unescape(encodeURIComponent(JSON.stringify({u,phone:ph,email:em}))));
+const body='Mã đăng ký tài khoản Heineken Good Practice:\n'+code+'\n\nTên đăng nhập: '+u+'\nSĐT: '+ph+'\nGmail: '+em;
+const sub='Đăng ký tài khoản Heineken Good Practice';
+$('rok').style.display='block';$('rok').innerHTML='<div class="lerr" style="color:#b6ffd3;min-height:0">✔ Đã ghi nhận đăng ký! Quản trị viên sẽ gửi mật khẩu qua email của bạn.</div><div style="font-size:12px;opacity:.8;margin-top:8px">Nếu admin dùng máy/trình duyệt khác, hãy gửi mã đăng ký bên dưới cho admin:</div><div class="rcode" id="rcode">'+X(code)+'</div><button class="lmini" id="rcp">📋 Sao chép mã</button><a class="lmini" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&su='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body)+'">✉ Gửi cho admin</a>';
+$('rcp').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(code);$('rcp').textContent='✔ Đã chép'};
+['ru','rp','rm'].forEach(i=>$(i).value='')};
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&d.users)DB=d}catch(e){}}
+$('lo').onclick=()=>{try{sessionStorage.removeItem('hauth')}catch(e){}location.reload()};
+/* ===== modal ===== */
+const M=$('mod'),MB=$('mbox');const mclose=()=>M.classList.remove('on');const mopen=h=>{MB.innerHTML=h;M.classList.add('on')};
+M.addEventListener('click',e=>{if(e.target===M)mclose()});
+function askPass(title,sub,cb){mopen(`<h3>${X(title)}</h3><p>${X(sub)}</p><div style="display:flex;gap:8px"><input id="mp" value="${rand()}"><button class="btn" id="mr" title="Tạo ngẫu nhiên">🎲</button></div><div class="amsg" id="mm"></div><div class="mact"><button class="btn" id="mc">Hủy</button><button class="btn p" id="mo">Xác nhận</button></div>`);
+$('mr').onclick=()=>$('mp').value=rand();$('mc').onclick=mclose;$('mo').onclick=()=>{const v=$('mp').value.trim();if(v.length<4){$('mm').textContent='Mật khẩu tối thiểu 4 ký tự.';return}mclose();cb(v)}}
+function cred(x,pw,title){const sub='Tài khoản Heineken Good Practice của bạn';const body=`Xin chào ${x.u},\n\nTài khoản của bạn trên hệ thống tra cứu Heineken Good Practice đã được tạo:\n- Tên đăng nhập: ${x.u}\n- Mật khẩu: ${pw}\n\nVui lòng đăng nhập và giữ bí mật mật khẩu.\n\nTrân trọng,\nQuản trị viên`;
+mopen(`<h3>${X(title)}</h3><p>Gửi thông tin này cho người dùng qua email.</p><div class="cred">👤 Tên đăng nhập: <b>${X(x.u)}</b><br>🔑 Mật khẩu: <b>${X(pw)}</b><br>✉ Email: ${X(x.email||'(chưa có)')}</div><div class="mact"><button class="btn" id="cc">📋 Sao chép</button><a class="btn" target="_blank" rel="noopener" href="mailto:${encodeURIComponent(x.email||'')}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}">📧 Ứng dụng mail</a><a class="btn p" target="_blank" rel="noopener" href="https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(x.email||'')}&su=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}">✉ Gửi qua Gmail</a><button class="btn" id="cx">Đóng</button></div>`);
+$('cx').onclick=mclose;$('cc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(body);$('cc').textContent='✔ Đã chép'}}
+/* ===== admin ===== */
+let tab='reqs';const A=$('adm');
+function msg(m,ok){const e=$('amsg');e.textContent=m||'';e.className='amsg'+(ok?' ok':'')}
+function render(){load();const pend=DB.reqs.filter(r=>r.status==='pending'),hist=DB.reqs.filter(r=>r.status!=='pending').slice(-30).reverse();
+$('atabs').innerHTML=`<button class="btn ${tab==='reqs'?'p':''}" data-a="tab" data-v="reqs">📥 Yêu cầu đăng ký (${pend.length})</button><button class="btn ${tab==='users'?'p':''}" data-a="tab" data-v="users">👥 Tài khoản (${DB.users.length})</button>`;
+let h='';
+if(tab==='reqs'){
+h+=`<div class="tw"><table class="tbl"><tr><th>Tên đăng nhập</th><th>SĐT</th><th>Gmail</th><th>Thời gian</th><th></th></tr>${pend.length?pend.map(r=>`<tr><td><b>${X(r.u)}</b></td><td>${X(r.phone)}</td><td>${X(r.email)}</td><td>${fd(r.t)}</td><td><button class="btn p" data-a="ok" data-v="${r.id}">✔ Tạo tài khoản</button> <button class="btn" data-a="no" data-v="${r.id}">✕ Từ chối</button></td></tr>`).join(''):'<tr><td colspan="5" style="text-align:center;color:var(--mut)">Chưa có yêu cầu nào đang chờ.</td></tr>'}</table></div>
+<div class="panel"><b>Nhập mã đăng ký</b> <span class="no">(khi người dùng đăng ký trên máy khác và gửi mã cho anh)</span><div class="row"><input class="srch" id="icode" placeholder="Dán mã đăng ký vào đây" style="flex:1"><button class="btn p" data-a="imp">Nhập</button></div></div>`;
+if(hist.length)h+=`<h4>Lịch sử xử lý</h4><div class="tw"><table class="tbl">${hist.map(r=>`<tr><td>${X(r.u)}</td><td>${X(r.email)}</td><td>${fd(r.t)}</td><td><span class="bd ${r.status==='approved'?'':'r'}">${r.status==='approved'?'Đã tạo':'Từ chối'}</span></td></tr>`).join('')}</table></div>`}
+else{
+h+=`<div class="panel"><b>Thêm tài khoản mới</b><div class="fgrid" style="margin-top:10px"><input id="au" placeholder="Tên đăng nhập"><input id="ap" placeholder="SĐT"><input id="am" placeholder="Gmail"><input id="apw" placeholder="Mật khẩu" value="${rand()}"><select id="ar"><option value="user">Người dùng</option><option value="admin">Quản trị viên</option></select><button class="btn p" data-a="add">+ Tạo</button></div></div>
+<div class="tw"><table class="tbl"><tr><th>Tên đăng nhập</th><th>Vai trò</th><th>SĐT</th><th>Gmail</th><th>Ngày tạo</th><th></th></tr>${DB.users.map(x=>`<tr><td><b>${X(x.u)}</b></td><td><span class="bd ${x.role==='admin'?'a':''}">${x.role==='admin'?'Admin':'User'}</span></td><td>${X(x.phone||'—')}</td><td>${X(x.email||'—')}</td><td>${fd(x.t)}</td><td><button class="btn" data-a="rs" data-v="${X(x.u)}">🔑 Đổi mật khẩu</button> ${x.u===(ME&&ME.u)?'':`<button class="btn" data-a="del" data-v="${X(x.u)}">🗑 Xóa</button>`}</td></tr>`).join('')}</table></div>
+<div class="row"><button class="btn" data-a="exp">⬇ Sao lưu tài khoản (JSON)</button></div>`}
+$('admBody').innerHTML=h}
+function valid(u,ph,em){if(!/^[A-Za-z0-9_.]{3,20}$/.test(u))return'Tên đăng nhập 3–20 ký tự (chữ, số, _ hoặc .).';if(em&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))return'Email không hợp lệ.';return''}
+A.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,v=t.dataset.v;msg('');load();
+if(a==='tab'){tab=v;render()}
+else if(a==='ok'){const r=DB.reqs.find(x=>x.id===v);if(!r)return;if(find(r.u)){msg('Tên đăng nhập này đã tồn tại.');return}
+askPass('Tạo tài khoản cho '+r.u,'Đặt mật khẩu cho người dùng (có thể dùng mật khẩu ngẫu nhiên).',pw=>{const x={u:r.u,p:pw,role:'user',phone:r.phone,email:r.email,t:Date.now()};DB.users.push(x);r.status='approved';save();render();cred(x,pw,'✔ Đã tạo tài khoản')})}
+else if(a==='no'){const r=DB.reqs.find(x=>x.id===v);if(r){r.status='rejected';save();render()}}
+else if(a==='imp'){try{const o=JSON.parse(decodeURIComponent(escape(atob($('icode').value.trim()))));if(!o.u||!o.email)throw 0;if(find(o.u)||DB.reqs.some(r=>r.status==='pending'&&r.u.toLowerCase()===o.u.toLowerCase())){msg('Tên đăng nhập đã tồn tại/đang chờ.');return}DB.reqs.push({id:Date.now().toString(36),u:o.u,phone:o.phone||'',email:o.email,t:Date.now(),status:'pending'});save();render();msg('✔ Đã nhập yêu cầu của '+o.u,1)}catch(x){msg('Mã đăng ký không hợp lệ.')}}
+else if(a==='add'){const u=$('au').value.trim(),ph=$('ap').value.trim(),em=$('am').value.trim(),pw=$('apw').value.trim(),ro=$('ar').value;const er=valid(u,ph,em);if(er){msg(er);return}if(pw.length<4){msg('Mật khẩu tối thiểu 4 ký tự.');return}if(find(u)){msg('Tên đăng nhập đã tồn tại.');return}
+const x={u,p:pw,role:ro,phone:ph,email:em,t:Date.now()};DB.users.push(x);save();render();cred(x,pw,'✔ Đã tạo tài khoản')}
+else if(a==='rs'){const x=find(v);if(!x)return;askPass('Đổi mật khẩu: '+x.u,'Nhập mật khẩu mới hoặc dùng mật khẩu ngẫu nhiên.',pw=>{x.p=pw;save();render();cred(x,pw,'✔ Đã đổi mật khẩu')})}
+else if(a==='del'){if(confirm('Xóa tài khoản '+v+'?')){DB.users=DB.users.filter(x=>x.u!==v);save();render()}}
+else if(a==='exp'){const b=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});const l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='heineken_users_backup.json';l.click()}});
+$('adminBtn').onclick=()=>{tab='reqs';render();A.classList.add('on')};$('admx').onclick=()=>A.classList.remove('on');
 })();
 </script></body></html>
