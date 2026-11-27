@@ -104,6 +104,7 @@ body.locked{overflow:hidden}
 .mact{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
 a.btn{text-decoration:none;display:inline-block}
 .amsg{min-height:20px;font-size:13px;margin:8px 0;color:var(--r);font-weight:600}.amsg.ok{color:var(--g)}
+body:not(.isadmin){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}.cpb{display:none}body.isadmin .cpb{display:inline-block}input,textarea{-webkit-user-select:text;user-select:text}@media print{body:not(.isadmin){display:none!important}}
 </style></head><body class="locked">
 <div id="login"><svg class="bigstar" viewBox="0 0 100 100"><path d="M50 4l13 29 31 4-23 22 6 31-27-15-27 15 6-31L6 37l31-4z" fill="#fff"/></svg>
 <div class="lcard" id="lcard"><svg viewBox="0 0 250 78" aria-label="Heineken"><rect width="250" height="78" rx="14" fill="#0a7d3a"/><rect x="3" y="3" width="244" height="72" rx="11" fill="none" stroke="#ffffff55" stroke-width="1.5"/><path d="M39 13l6.9 14.3 15.6 2.2-11.3 11 2.7 15.6L39 48.7l-13.9 7.4 2.7-15.6-11.3-11 15.6-2.2z" fill="#e2231a" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><text x="72" y="50" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="35" letter-spacing="-.5">Heineken</text><text x="73" y="67" fill="#ffffffcc" font-family="Arial,sans-serif" font-size="9" letter-spacing="3.2">GOOD PRACTICE</text></svg><h2>Heineken Good Practice</h2><p>Hệ thống tra cứu · Nhà máy bia Heineken</p>
@@ -129,7 +130,7 @@ a.btn{text-decoration:none;display:inline-block}
 <div class="panel"><input class="srch" id="q" placeholder="🔍 Tìm theo từ khóa (tiếng Anh hoặc tiếng Việt đã dịch): malt mill, steam, nén khí…" autocomplete="off">
 <div class="row"><select id="ty"></select><select id="ar"></select><select id="ez"></select><select id="so"><option value="n">Sắp xếp: Số thứ tự</option><option value="e">Hiệu quả: tốt nhất trước</option><option value="a">Tên A→Z</option></select>
 <span class="seg" id="mode"><button data-m="both" class="on">EN + VI</button><button data-m="vi">Tiếng Việt</button><button data-m="en">English</button></span></div>
-<div class="row"><button class="btn" id="favOnly">♥ Đã lưu (<span id="fc">0</span>)</button><button class="btn" id="exp">⬇ Xuất CSV</button><button class="btn" id="rs">↺ Xóa bộ lọc</button><span class="no" id="cnt"></span></div></div>
+<div class="row"><button class="btn" id="favOnly">♥ Đã lưu (<span id="fc">0</span>)</button><button class="btn" id="exp" style="display:none">⬇ Xuất CSV</button><button class="btn" id="rs">↺ Xóa bộ lọc</button><span class="no" id="cnt"></span></div></div>
 <div class="stat" id="stat"><span></span></div>
 <div class="panel"><div class="bars" id="bars"></div></div>
 <div class="grid" id="grid"></div><div class="more"><button class="btn p" id="more">Xem thêm</button></div>
@@ -162,7 +163,7 @@ ${en||!v?`<h4>${esc(d.t)}</h4>`:''}${vi&&v?`<h4 class="vi">${esc(v.t)}</h4>`:''}
 ${vi&&!v&&!translate.bad?'<p class="no">⏳ Đang dịch…</p>':''}
 ${en&&d.d?`<p>${esc(d.d)}</p>`:''}${vi&&v&&v.d?`<p class="vi">${esc(v.d)}</p>`:''}
 <div class="tags"><span class="tag">${esc(TY[d.ty]||d.ty)}</span><span class="tag">${esc(AR[d.ar]||d.ar)}</span>${d.e?`<span class="tag e${d.e}">${esc(EZ[d.e])}</span>`:''}</div>
-<div class="act"><button class="btn" data-c="${d.k}">📋 Sao chép</button></div></div>`}
+<div class="act"><button class="btn cpb" data-c="${d.k}">📋 Sao chép</button></div></div>`}
 let cur=[];
 function render(){cur=filtered();$('cnt').textContent=`${cur.length}/${D.length} biện pháp`;$('fc').textContent=FAV.size;
 $('grid').innerHTML=cur.length?cur.slice(0,S.n).map(card).join(''):'<div class="empty" style="grid-column:1/-1">Không tìm thấy kết quả phù hợp.</div>';$('more').style.display=cur.length>S.n?'block':'none';setTimeout(auto,0)}
@@ -215,9 +216,9 @@ const fd=t=>new Date(t).toLocaleString('vi-VN');
 /* ===== login ===== */
 const L=$('login'),C=$('lcard'),U=$('lu'),P=$('lp'),B=$('lb'),E=$('le');
 for(let i=0;i<30;i++){const b=document.createElement('span');b.className='bub';const s=8+Math.random()*46;b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${9+Math.random()*14}s;animation-delay:${-Math.random()*20}s;--dx:${(Math.random()-.5)*160}px`;L.appendChild(b)}
-function enter(x){ME=x;$('adminBtn').style.display=x.role==='admin'?'':'none';L.classList.add('out');document.body.classList.remove('locked');setTimeout(()=>L.style.display='none',700)}
+function enter(x){ME=x;$('adminBtn').style.display=$('exp').style.display=x.role==='admin'?'':'none';document.body.classList.toggle('isadmin',x.role==='admin');L.classList.add('out');document.body.classList.remove('locked');setTimeout(()=>L.style.display='none',700)}
 let au=null;try{au=sessionStorage.getItem('hauth')}catch(e){}
-const ax=au&&find(au);if(ax){L.style.display='none';document.body.classList.remove('locked');ME=ax;$('adminBtn').style.display=ax.role==='admin'?'':'none'}else setTimeout(()=>U.focus(),500);
+const ax=au&&find(au);if(ax){L.style.display='none';document.body.classList.remove('locked');ME=ax;$('adminBtn').style.display=$('exp').style.display=ax.role==='admin'?'':'none';document.body.classList.toggle('isadmin',ax.role==='admin')}else setTimeout(()=>U.focus(),500);
 function go(){if(B.classList.contains('load'))return;E.textContent='';B.classList.add('load');
 setTimeout(()=>{B.classList.remove('load');const x=find(U.value);
 if(x&&x.p===P.value){try{sessionStorage.setItem('hauth',x.u)}catch(e){}C.classList.add('ok');E.style.color='#b6ffd3';E.textContent='✔ Đăng nhập thành công!';setTimeout(()=>{enter(x);C.classList.remove('ok')},450)}
@@ -279,4 +280,10 @@ else if(a==='del'){if(confirm('Xóa tài khoản '+v+'?')){DB.users=DB.users.fil
 else if(a==='exp'){const b=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});const l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='heineken_users_backup.json';l.click()}});
 $('adminBtn').onclick=()=>{tab='reqs';render();A.classList.add('on')};$('admx').onclick=()=>A.classList.remove('on');
 })();
+</script><script>
+(function(){const ok=t=>document.body.classList.contains('isadmin')||(t&&t.closest&&t.closest('input,textarea'));
+['copy','cut','dragstart','selectstart'].forEach(ev=>document.addEventListener(ev,e=>{if(!ok(e.target))e.preventDefault()}));
+document.addEventListener('contextmenu',e=>{if(!ok(e.target))e.preventDefault()});
+document.addEventListener('keydown',e=>{const k=(e.key||'').toLowerCase(),m=e.ctrlKey||e.metaKey;
+if((m&&['c','x','a','s','u','p'].includes(k)&&!ok(e.target))||e.key==='F12'||(m&&e.shiftKey&&['i','j','c'].includes(k))||e.key==='PrintScreen')e.preventDefault()})})();
 </script></body></html>
